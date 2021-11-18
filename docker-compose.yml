@@ -1,0 +1,15 @@
+version: "3.8"
+
+services:
+  app:
+    container_name: app
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    volumes:
+      - ./:/var/www/html/
+      - ./config/php.ini-production:/usr/local/etc/php/conf.d/custom.ini
+    ports:
+      - "8300:80"
+    stdin_open: true
+    tty: true
